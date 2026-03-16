@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import API from "../../api/axios";
 
 
 const tripSlice = createSlice({
@@ -43,7 +44,7 @@ export default tripSlice.reducer
 
 export const genratePlan = createAsyncThunk("TRIP/GENRATEPLAN" , async(formData) =>{
   try {
-    const response = await axios.post("https://trip-by-ai.onrender.com/api/plan" , formData)
+    const response = await API.post("https://trip-by-ai.onrender.com/api/plan" , formData)
     console.log(response.data)
     return response.data
   } catch (error) {
