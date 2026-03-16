@@ -1,5 +1,5 @@
 const express = require("express");
-const { genratePlan } = require("../controllers/planerController");
+const { genratePlan } = require("../../client/trip-planner/src/features/trip/tripSlice");
 
 const router = express.Router();
 

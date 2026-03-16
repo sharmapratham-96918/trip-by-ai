@@ -115,20 +115,24 @@ Budget: ₹${budget}
 }
 
 // 🟢 Controller
-export const genratePlan = async (req, res) => {
+const genratePlan = async (req, res) => {
   try {
     const { from, to, budget } = req.body;
+
     const plan = await requestGeneration(from, to, budget);
 
     res.status(200).json({
       message: "Travel plan generated successfully",
-      plan,
+      plan
     });
+
   } catch (error) {
-    console.error("❌ Error generating plan:", error);
+    console.error("Error generating plan:", error);
     res.status(500).json({
       message: "Error generating plan",
-      error: error.message || error,
+      error: error.message || error
     });
   }
 };
+
+module.exports = { genratePlan };
