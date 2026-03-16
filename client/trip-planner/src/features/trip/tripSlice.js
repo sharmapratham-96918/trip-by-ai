@@ -46,6 +46,7 @@ export const genratePlan = createAsyncThunk("TRIP/GENRATEPLAN" , async(formData)
   try {
     const response = await API.post("https://trip-by-ai.onrender.com/api/plan" , formData)
     console.log(response.data)
+    console.log("API URL:", API.defaults.baseURL);
     return response.data
   } catch (error) {
     console.log(error)
